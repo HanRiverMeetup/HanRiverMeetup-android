@@ -34,7 +34,6 @@ public class ImageSheetDialogFragment extends BottomSheetDialogFragment implemen
     private String currentPhotoPath;//실제 사진 파일 경로
     String mImageCaptureName;//이미지 이름
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -76,7 +75,7 @@ public class ImageSheetDialogFragment extends BottomSheetDialogFragment implemen
                 if (photoFile != null) {
                     photoUri = FileProvider.getUriForFile(getContext(),"com.depromeet.hanriver.hanrivermeetup", photoFile);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-                    startActivityForResult(intent, CAMERA_CODE);
+                    getActivity().startActivityForResult(intent, CAMERA_CODE);
                 }
             }
         }
@@ -120,11 +119,11 @@ public class ImageSheetDialogFragment extends BottomSheetDialogFragment implemen
     }
 
     private void selectGallery() {
-
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setData(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         intent.setType("image/*");
-        startActivityForResult(intent, GALLERY_CODE);
+        getActivity().startActivityForResult(intent, GALLERY_CODE);
+
     }
 
     private void sendPicture(Uri imgUri) {
@@ -176,7 +175,5 @@ public class ImageSheetDialogFragment extends BottomSheetDialogFragment implemen
 
         return cursor.getString(column_index);
     }
-
-
 }
 

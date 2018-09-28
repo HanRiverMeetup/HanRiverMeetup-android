@@ -43,7 +43,6 @@ import io.reactivex.processors.PublishProcessor;
 import io.reactivex.schedulers.Schedulers;
 
 public class TimelineFragment extends Fragment {
-    @BindView(R.id.add_post_fab) FloatingActionButton title;
     @BindView(R.id.timeline_scrollview) NestedScrollView mNestedScrollView;
     @BindView(R.id.recyclerview) RecyclerView mRecyclerView;
     @BindView(R.id.timeline_weather_img) ImageView weather_img;

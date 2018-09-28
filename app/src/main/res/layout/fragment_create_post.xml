@@ -40,6 +40,12 @@
         android:background="@android:color/transparent"
         android:src="@drawable/add_pic" />
 
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
     <TextView
         android:id="@+id/image_add_text"
         android:layout_width="wrap_content"

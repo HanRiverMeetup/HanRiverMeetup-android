@@ -2,6 +2,7 @@ package com.depromeet.hanriver.hanrivermeetup.service;
 
 import com.depromeet.hanriver.hanrivermeetup.model.meeting.Comment;
 import com.depromeet.hanriver.hanrivermeetup.model.meeting.MatchingDetail;
+import com.depromeet.hanriver.hanrivermeetup.model.meeting.MeetingDetail;
 import com.depromeet.hanriver.hanrivermeetup.model.timeline.TimeLineVO;
 import com.depromeet.hanriver.hanrivermeetup.network.APIUtiles;
 import com.depromeet.hanriver.hanrivermeetup.network.TimelineAPIService;
@@ -12,8 +13,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.net.ssl.HttpsURLConnection;
+
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
+import retrofit2.Response;
 
 public class TimelineService {
     private static final TimelineService ourInstance = new TimelineService();
@@ -41,5 +45,14 @@ public class TimelineService {
         return mService.getPosts(jsonBody)
                 .subscribeOn(Schedulers.io())
                 .map(it -> it);
+    }
+
+    public Observable<Response<TimeLineVO>> createPost(TimeLineVO post) {
+        return mService.createPost(post).subscribeOn(Schedulers.io())
+                .doOnNext( res -> {
+                    if(res.code() == HttpsURLConnection.HTTP_OK){
+                        res.body();
+                    }
+                });
     }
 }
