@@ -74,7 +74,7 @@ public class MeetingCategoryFragment extends Fragment {
     private void setupViews(View v) {
         weather_img = v.findViewById(R.id.weather_img);
         weather_temp = v.findViewById(R.id.weather_temp);
-//        weather_temp_sub = v.findViewById(R.id.weather_temp_sub);
+        weather_temp_sub = v.findViewById(R.id.weather_temp_sub);
         mActivitesView = v.findViewById(R.id.category_main_text);
         mActivitesView.setText(PreferencesManager.getNickname()+" 님\n한강에서 즐겨볼까요?");
         recyclerView = v.findViewById(R.id.category_rv);
@@ -134,7 +134,7 @@ public class MeetingCategoryFragment extends Fragment {
 
     private void setWeather(@NonNull final Weather weather){
         weather_temp.setText(weather.getT1h().toString());
-//        weather_temp_sub.setText(skyState[Integer.parseInt(weather.getSky())]+"\n" + weather.getTmn()+"℃ / " + weather.getTmx()+"℃");
+        weather_temp_sub.setText(skyState[Integer.parseInt(weather.getSky())]+"\n" + weather.getTmn()+"℃ / " + weather.getTmx()+"℃");
         if (Integer.parseInt(weather.getPty()) != 0) {
             weather_img.setImageResource(rainState_img[Integer.parseInt(weather.getPty())]);
         }
