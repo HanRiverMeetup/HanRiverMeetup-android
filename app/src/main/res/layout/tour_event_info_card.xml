@@ -70,6 +70,7 @@
             android:id="@+id/mapcard_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:alpha="0.2"
             android:layout_gravity="top|end"/>
 
     </FrameLayout>

@@ -1,8 +1,12 @@
 package com.depromeet.hanriver.hanrivermeetup.fragment.meeting.map;
 
 import android.content.Context;
+import android.net.Uri;
+import android.os.Environment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.CardView;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.depromeet.hanriver.hanrivermeetup.R;
+import com.depromeet.hanriver.hanrivermeetup.common.PreferencesManager;
+import com.depromeet.hanriver.hanrivermeetup.helper.CircleTransform;
+import com.depromeet.hanriver.hanrivermeetup.service.FacebookService;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,11 +88,15 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
         TextView addressTextView = view.findViewById(R.id.address);
         TextView homePageView = view.findViewById(R.id.homepage_text);
         TextView telView = view.findViewById(R.id.phone_text);
+        ImageView imageView = view.findViewById(R.id.mapcard_image);
 
         titleTextView.setText(item.getTitle());
         addressTextView.setText(item.getText());
         homePageView.setText(item.getmHomepageUrl());
         telView.setText(item.getmTel());
+        if(!TextUtils.isEmpty(item.getImageUrl())){
+            Picasso.get().load(item.getImageUrl()).resize(800,370).centerCrop().into(imageView);
+        }
     }
 
 }

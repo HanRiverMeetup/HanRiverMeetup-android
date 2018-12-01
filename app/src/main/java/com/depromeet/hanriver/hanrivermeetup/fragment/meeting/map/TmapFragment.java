@@ -255,9 +255,6 @@ public class TmapFragment extends Fragment {
                     int position = Integer.valueOf(tMapMarkerItem.getID());
                     Toast.makeText(getContext(), markers.get(position).getTitle(), Toast.LENGTH_SHORT).show();
 
-                    Log.d("@@@mapx",""+markers.get(position).getMapx());
-                    Log.d("@@@mapy",""+markers.get(position).getMapy());
-
                 }
             });
         }
@@ -316,7 +313,7 @@ public class TmapFragment extends Fragment {
     private void setCardList(List<TourEventInfo> markers){
         mCardAdapter = new CardPagerAdapter();
         for(int i=0;i<markers.size();i++) {
-            mCardAdapter.addCardItem(new CardItem(markers.get(i).getTitle(), markers.get(i).getAddr(),markers.get(i).getHompage(),markers.get(i).getTel()));
+            mCardAdapter.addCardItem(new CardItem(markers.get(i).getTitle(), markers.get(i).getAddr(),markers.get(i).getHompage(),markers.get(i).getTel(),markers.get(i).getImage()));
         }
 
         mCardShadowTransformer = new ShadowTransformer(mViewPager, mCardAdapter);
@@ -337,7 +334,6 @@ public class TmapFragment extends Fragment {
                 mapView.setCenterPoint(markers.get(i).getMapx(),markers.get(i).getMapy()-0.003);
                 mapView.setZoom(15);
                 cf_markerItem[i].setAutoCalloutVisible(true);
-                Log.d("@@@",""+markers.get(i).getMapx()+"/"+markers.get(i).getMapy());
             }
 
             @Override

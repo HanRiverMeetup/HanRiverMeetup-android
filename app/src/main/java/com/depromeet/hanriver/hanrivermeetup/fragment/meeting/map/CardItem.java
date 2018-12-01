@@ -5,12 +5,14 @@ public class CardItem {
     private String mTitleResource;
     private String mHomepageUrl;
     private String mTel;
+    private String imageUrl;
 
-    public CardItem(String title, String text,String url,String tel) {
+    public CardItem(String title, String text,String url,String tel,String imageUrl) {
         mTitleResource = title;
         mTextResource = text;
         mHomepageUrl = url;
         mTel = tel;
+        this.imageUrl = imageUrl;
     }
 
     public String getText() {
@@ -27,5 +29,9 @@ public class CardItem {
 
     public String getmTel() {
         return mTel;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 }
