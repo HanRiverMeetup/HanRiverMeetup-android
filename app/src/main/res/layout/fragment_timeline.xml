@@ -91,7 +91,7 @@
                     android:textColor="#2186f8"
                     android:textSize="14sp" />
 
-                <!--
+
                 <TextView
                     android:id="@+id/timeline_weather_status_text"
                     android:layout_width="wrap_content"
@@ -105,7 +105,7 @@
                     android:lineSpacingExtra="6sp"
                     android:textColor="#666666"
                     android:textSize="14sp" />
-                   -->
+
             </android.support.constraint.ConstraintLayout>
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerview"

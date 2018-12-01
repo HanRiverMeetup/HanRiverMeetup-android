@@ -56,7 +56,7 @@ public class TimelineFragment extends Fragment {
     @BindView(R.id.recyclerview) RecyclerView mRecyclerView;
     @BindView(R.id.timeline_weather_img) ImageView weather_img;
     @BindView(R.id.timeline_temperature_text) TextView weather_temp;
-//    @BindView(R.id.timeline_weather_status_text) TextView weather_temp_sub;
+    @BindView(R.id.timeline_weather_status_text) TextView weather_temp_sub;
     @BindView(R.id.event_pager) ViewPager mEventViewPager;
     @BindView(R.id.page_text) TextView pageTextView;
 
@@ -200,7 +200,7 @@ public class TimelineFragment extends Fragment {
 
     private void setWeather(@NonNull final Weather weather){
         weather_temp.setText(weather.getT1h().toString());
-//        weather_temp_sub.setText(skyState[Integer.parseInt(weather.getSky())]+"\n" + weather.getTmn()+"℃ / " + weather.getTmx()+"℃");
+        weather_temp_sub.setText(skyState[Integer.parseInt(weather.getSky())]+"\n" + weather.getTmn()+"℃ / " + weather.getTmx()+"℃");
         if (Integer.parseInt(weather.getPty()) != 0) {
             weather_img.setImageResource(rainState_img[Integer.parseInt(weather.getPty())]);
         }
