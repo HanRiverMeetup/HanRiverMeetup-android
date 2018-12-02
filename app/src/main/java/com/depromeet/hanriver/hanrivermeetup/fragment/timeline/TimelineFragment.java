@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.depromeet.hanriver.hanrivermeetup.R;
+import com.depromeet.hanriver.hanrivermeetup.common.PreferencesManager;
 import com.depromeet.hanriver.hanrivermeetup.fragment.timeline.Adapter.TimeLineAdapter;
 import com.depromeet.hanriver.hanrivermeetup.model.meeting.Weather;
 import com.depromeet.hanriver.hanrivermeetup.model.timeline.EventVO;
@@ -59,6 +60,7 @@ public class TimelineFragment extends Fragment {
     @BindView(R.id.timeline_weather_status_text) TextView weather_temp_sub;
     @BindView(R.id.event_pager) ViewPager mEventViewPager;
     @BindView(R.id.page_text) TextView pageTextView;
+    @BindView(R.id.timeline_main_text) TextView nickNameText;
 
     private EventBannerAdapter eventBannerAdapter;
 
@@ -104,6 +106,7 @@ public class TimelineFragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mTimeLineAdapter = new TimeLineAdapter(getActivity());
         mRecyclerView.setAdapter(mTimeLineAdapter);
+        nickNameText.setText(PreferencesManager.getNickname()+" 님\n한강소식을 알볼까요?");
 
         return view;
     }
