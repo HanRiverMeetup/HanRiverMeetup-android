@@ -18,8 +18,12 @@
 bin/
 gen/
 out/
+app/debug
+app/release
 
 # Properties
+
+keystore
 keystore.properties
 string_key.xml
 

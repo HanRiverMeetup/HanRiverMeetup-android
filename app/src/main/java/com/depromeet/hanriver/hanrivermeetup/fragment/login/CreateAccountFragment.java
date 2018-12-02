@@ -49,6 +49,7 @@ public class CreateAccountFragment extends Fragment {
                         .observeOn(AndroidSchedulers.mainThread())
                         .doOnNext(res -> {
                             if(res.code() == HttpsURLConnection.HTTP_OK) {
+                                PreferencesManager.setNickname(res.body().nickname);
                                 intentMain();
                             }
                             else {

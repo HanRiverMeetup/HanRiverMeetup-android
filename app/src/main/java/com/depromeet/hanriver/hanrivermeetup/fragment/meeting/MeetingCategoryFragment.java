@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,7 +18,6 @@ import com.depromeet.hanriver.hanrivermeetup.activity.main.MainActivity;
 import com.depromeet.hanriver.hanrivermeetup.HanRiverMeetupApplication;
 import com.depromeet.hanriver.hanrivermeetup.R;
 import com.depromeet.hanriver.hanrivermeetup.common.PreferencesManager;
-import com.depromeet.hanriver.hanrivermeetup.fragment.login.LoginFragment;
 import com.depromeet.hanriver.hanrivermeetup.fragment.meeting.Adapter.Category.MeetingCategoryAdapter;
 import com.depromeet.hanriver.hanrivermeetup.model.meeting.Activity;
 import com.depromeet.hanriver.hanrivermeetup.model.meeting.Weather;
@@ -43,7 +41,6 @@ public class MeetingCategoryFragment extends Fragment {
 
     @Nullable
     private TextView mActivitesView;
-    private GridView gridview;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager rvManager;
     private ImageView weather_img;
@@ -68,7 +65,6 @@ public class MeetingCategoryFragment extends Fragment {
         setupViews(v);
         Log.d("TAG","oncreateView");
         return v;
-
     }
 
     private void setupViews(View v) {
@@ -82,7 +78,6 @@ public class MeetingCategoryFragment extends Fragment {
         rvManager = new LinearLayoutManager(getContext());
         Log.d("TAG","setupViews");
         MainActivity.tabVisible(View.VISIBLE);
-
     }
 
     @Override
@@ -116,10 +111,7 @@ public class MeetingCategoryFragment extends Fragment {
                     }
                 })
                 .subscribe());
-
     }
-
-
 
     private void unBind() {
         mCompositeDisposable.clear();
@@ -129,7 +121,6 @@ public class MeetingCategoryFragment extends Fragment {
         assert mActivitesView != null;
         recyclerView.setLayoutManager(rvManager);
         recyclerView.setAdapter(new MeetingCategoryAdapter(activites,getContext(),this));
-
     }
 
     private void setWeather(@NonNull final Weather weather){
@@ -147,5 +138,4 @@ public class MeetingCategoryFragment extends Fragment {
     private MeetingCategoryViewModel getViewModel() {
         return ((HanRiverMeetupApplication)getActivity().getApplicationContext()).getMeetingCategoryViewModel();
     }
-
 }
